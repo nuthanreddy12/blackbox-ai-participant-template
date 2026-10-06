@@ -114,7 +114,7 @@
       }
     },
     {
-      "type": "decision boundary",
+      "type": "threshold",
       "feature": "comorbidity_ratio",
       "direction": "APPROVE to DECLINE transition",
       "strength": "strong",
