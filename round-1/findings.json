@@ -1,17 +1,127 @@
 {
   "round": "round-1",
-  "team": "BB-XXX",
-  "queries_used": 0,
+  "team": "BB-003",
+  "queries_used": 66,
   "claims": [
     {
-      "type": "feature_effect",
-      "feature": "x1",
+      "type": "feature effect",
+      "feature": "age",
       "direction": "increases",
       "strength": "strong",
-      "confidence": 0.0,
+      "confidence": 0.98,
       "evidence": {
-        "query_ids": [],
-        "summary": "Replace this example claim with your own. Every claim needs evidence."
+        "query_ids": [1, 2, 3],
+        "summary": "Under the baseline configuration, age 18 produced 0.5053, age 46.5 produced 0.6612, and age 75 produced 0.7714. Increasing age consistently increased the score."
+      }
+    },
+    {
+      "type": "feature effect",
+      "feature": "baseline_score",
+      "direction": "increases",
+      "strength": "strong",
+      "confidence": 0.98,
+      "evidence": {
+        "query_ids": [1, 4, 5],
+        "summary": "At age 46.5 and otherwise baseline settings, baseline_score 300 produced 0.4509, 600 produced 0.6612, and 900 produced 0.7264."
+      }
+    },
+    {
+      "type": "feature effect",
+      "feature": "comorbidity_ratio",
+      "direction": "decreases",
+      "strength": "strong",
+      "confidence": 0.99,
+      "evidence": {
+        "query_ids": [1, 6, 7],
+        "summary": "At the baseline configuration, comorbidity_ratio 0 produced 0.8347, 0.5 produced 0.6612, and 1 produced 0.4475. Higher values strongly reduced the score."
+      }
+    },
+    {
+      "type": "feature effect",
+      "feature": "dependents",
+      "direction": "no observable effect",
+      "strength": "strong",
+      "confidence": 0.97,
+      "evidence": {
+        "query_ids": [1, 8, 9],
+        "summary": "Changing dependents from 0 to 3 to 6 produced 0.6612 in all three baseline-equivalent observations."
+      }
+    },
+    {
+      "type": "feature effect",
+      "feature": "prior_visits",
+      "direction": "increases",
+      "strength": "strong",
+      "confidence": 0.98,
+      "evidence": {
+        "query_ids": [1, 10, 11],
+        "summary": "At baseline settings, prior_visits 0 produced 0.4897, 10 produced 0.6612, and 20 produced 0.7951."
+      }
+    },
+    {
+      "type": "feature effect",
+      "feature": "recent_admissions",
+      "direction": "decreases",
+      "strength": "strong",
+      "confidence": 0.98,
+      "evidence": {
+        "query_ids": [1, 12, 13],
+        "summary": "At baseline settings, recent_admissions 0 produced 0.7567, 2.5 produced 0.6612, and 5 produced 0.5726."
+      }
+    },
+    {
+      "type": "feature effect",
+      "feature": "requested_beds",
+      "direction": "no observable effect",
+      "strength": "strong",
+      "confidence": 0.97,
+      "evidence": {
+        "query_ids": [1, 14, 15],
+        "summary": "Changing requested_beds across 0, 50, and 100 produced 0.6612 in the tested baseline configuration."
+      }
+    },
+    {
+      "type": "feature effect",
+      "feature": "vitals_index",
+      "direction": "no observable effect",
+      "strength": "strong",
+      "confidence": 0.97,
+      "evidence": {
+        "query_ids": [1, 16, 17],
+        "summary": "Changing vitals_index across 0, 50, and 100 produced 0.6612 in the tested baseline configuration."
+      }
+    },
+    {
+      "type": "feature effect",
+      "feature": "years_registered",
+      "direction": "decreases",
+      "strength": "moderate",
+      "confidence": 0.95,
+      "evidence": {
+        "query_ids": [1, 18, 19],
+        "summary": "At baseline settings, years_registered 0 produced 0.7552, 20 produced 0.6612, and 40 produced 0.5881."
+      }
+    },
+    {
+      "type": "feature effect",
+      "feature": "ward",
+      "direction": "small categorical effect",
+      "strength": "weak",
+      "confidence": 0.92,
+      "evidence": {
+        "query_ids": [1, 20, 21, 22],
+        "summary": "At the baseline configuration, ward A produced 0.6612, B produced 0.6602, C produced 0.6522, and D produced 0.6604. Ward effects were small compared with the major numerical features."
+      }
+    },
+    {
+      "type": "decision boundary",
+      "feature": "comorbidity_ratio",
+      "direction": "APPROVE to DECLINE transition",
+      "strength": "strong",
+      "confidence": 0.98,
+      "evidence": {
+        "query_ids": [27, 28, 33, 34],
+        "summary": "Under the tested baseline configuration, 0.975 produced 0.4612 and APPROVE, while approximately 0.9754 to 0.9758 produced DECLINE. The observed transition is therefore near 0.975."
       }
     }
   ]
