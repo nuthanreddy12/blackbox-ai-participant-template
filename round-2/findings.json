@@ -1,17 +1,39 @@
 {
   "round": "round-2",
-  "team": "BB-XXX",
-  "queries_used": 0,
+  "team": "BB-003",
+  "queries_used": 110,
   "claims": [
     {
       "type": "feature_effect",
-      "feature": "x1",
-      "direction": "increases",
+      "feature": "comorbidity_ratio",
+      "direction": "decreases",
       "strength": "strong",
-      "confidence": 0.0,
+      "confidence": 0.98,
       "evidence": {
-        "query_ids": [],
-        "summary": "Replace this example claim with your own. Every claim needs evidence."
+        "query_ids": [79, 89, 92, 96, 104, 80],
+        "summary": "With the other inputs held constant, increasing comorbidity_ratio consistently reduced the score: 0.5 to 0.6 changed the score from 0.9316 to 0.9173 (-0.0143), 0.6 to 0.7 gave 0.9173 to 0.8893 (-0.0280), 0.7 to 0.8 gave 0.8893 to 0.8667 (-0.0226), and 0.8 to 0.9 gave 0.8667 to 0.8484 (-0.0183). At the high end, a matched comparison of 0.9 to 1.0 reduced the score from 0.8484 to 0.8046 (-0.0438). The magnitude of the effect varies across the range, indicating a nonlinear relationship."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "age",
+      "direction": "increases",
+      "strength": "moderate",
+      "confidence": 0.9,
+      "evidence": {
+        "query_ids": [73, 79],
+        "summary": "Under the tested configuration, increasing age from 50 to 70 increased the score from 0.8860 to 0.9316, a change of +0.0456."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "years_registered",
+      "direction": "decreases",
+      "strength": "moderate",
+      "confidence": 0.93,
+      "evidence": {
+        "query_ids": [66, 67, 69, 70],
+        "summary": "With Ward B and the other tested inputs held constant, decreasing years_registered increased the score: 40 to 30 increased the score from 0.9006 to 0.9278 (+0.0272), 30 to 20 increased it from 0.9278 to 0.9529 (+0.0251), and 20 to 10 increased it from 0.9529 to 0.9594 (+0.0065). The magnitude of the change varied across the range, indicating a nonlinear effect."
       }
     }
   ]
