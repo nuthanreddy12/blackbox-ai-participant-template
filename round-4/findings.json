@@ -1,17 +1,72 @@
-{
+ {
   "round": "round-4",
-  "team": "BB-XXX",
-  "queries_used": 0,
+  "team": "BB-003",
+  "queries_used": 150,
   "claims": [
     {
       "type": "feature_effect",
-      "feature": "x1",
+      "feature": "age",
       "direction": "increases",
       "strength": "strong",
-      "confidence": 0.0,
+      "confidence": 0.98,
       "evidence": {
-        "query_ids": [],
-        "summary": "Replace this example claim with your own. Every claim needs evidence."
+        "query_ids": [73, 79],
+        "summary": "In a controlled comparison, increasing age from 50 to 70 increased the observed score from 0.8860 to 0.9316 while the other tested inputs were held fixed."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "comorbidity_ratio",
+      "direction": "decreases",
+      "strength": "strong",
+      "confidence": 0.99,
+      "evidence": {
+        "query_ids": [79, 89, 92, 96, 104, 80],
+        "summary": "Controlled observations showed a clear nonlinear negative effect: scores fell from 0.9316 at comorbidity_ratio 0.5 to 0.9173, 0.8893, 0.8667, 0.8484 and 0.8046 as the ratio increased through 0.6, 0.7, 0.8, 0.9 and 1.0."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "years_registered",
+      "direction": "decreases",
+      "strength": "moderate",
+      "confidence": 0.94,
+      "evidence": {
+        "query_ids": [66, 67, 69, 70],
+        "summary": "In controlled Ward B observations, increasing years_registered from 10 to 40 reduced the score, with observed scores of 0.9594 at 10, 0.9529 at 20, 0.9278 at 30 and 0.9006 at 40."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "ward",
+      "direction": "changes_score",
+      "strength": "weak",
+      "confidence": 0.82,
+      "evidence": {
+        "query_ids": [98, 99, 100, 101],
+        "summary": "Matched high-score probes produced different scores by ward: Ward B 0.9789, Ward A 0.9755, Ward C 0.9729 and Ward D 0.9657, indicating a small but observable categorical effect."
+      }
+    },
+    {
+      "type": "ignored_feature",
+      "feature": "dependants",
+      "direction": "no_observable_effect_in_tested_region",
+      "strength": "weak",
+      "confidence": 0.84,
+      "evidence": {
+        "query_ids": [60, 61, 102, 103],
+        "summary": "Matched high-score probes with different dependant values produced effectively unchanged scores, indicating little observable effect in the tested high-score region."
+      }
+    },
+    {
+      "type": "threshold",
+      "feature": "score",
+      "direction": "approve_above_threshold",
+      "strength": "strong",
+      "confidence": 0.98,
+      "evidence": {
+        "query_ids": [30, 31, 32, 33, 34],
+        "summary": "Round 1 boundary probing placed the APPROVE/DECLINE transition near 0.46; the reconstruction selected an optimized decision threshold of 0.4589 from out-of-fold predictions."
       }
     }
   ]
